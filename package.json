@@ -3,7 +3,7 @@
 	"name": "vscode-search",
 	"displayName": "vscode-search",
 	"description": "Quickly open the vscode command pallete and search for something instead of alt-tabing to your browser!",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
