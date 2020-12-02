@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import tlds from "./tlds";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
@@ -11,10 +12,19 @@ export function activate(context: vscode.ExtensionContext) {
       if (!search) {
         return;
       }
+      let url = "";
 
-      const url = search?.startsWith("http")
-        ? search
-        : `https://duckduckgo.com/${search}`;
+      if (search.startsWith("http")) {
+        url = search;
+      } else {
+        const tld = tlds.find((t) => search.includes(t));
+        if (tld) {
+          url = `https://${search}`;
+        } else {
+          url = `https://duckduckgo/${search}`;
+        }
+      }
+
       vscode.commands.executeCommand("vscode.open", vscode.Uri.parse(url));
     }
   );
