@@ -3,7 +3,7 @@
 	"name": "vscode-search",
 	"displayName": "vscode-search",
 	"description": "Quickly open the vscode command pallete and search for something instead of alt-tabing to your browser!",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -19,6 +19,18 @@
 			{
 				"command": "vscode-search.search",
 				"title": "Search"
+			}
+		],
+		"configuration": [
+			{
+				"title": "vscode-search Search Engine",
+				"properties": {
+					"search.searchEngine": {
+						"type": "string",
+						"default": "https://duckduckgo.com/",
+						"description": "The search engine that will be used for vscode-search"
+					}
+				}
 			}
 		]
 	},
